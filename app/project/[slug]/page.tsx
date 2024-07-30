@@ -1,8 +1,9 @@
 import { getProjectsSlugs } from '../../lib/supabase/queries/woCache/projects';
 
-export async function generateStaticParams() {
-  return await getProjectsSlugs();
-}
+export const generateStaticParams = async () => {
+  const projectsSlugs = await getProjectsSlugs();
+  return projectsSlugs.map(({ slug }) => ({ slug }));
+};
 
 interface ProjectProps {
   params: { slug: string };
