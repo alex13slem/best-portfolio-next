@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import ContactButton from './contact-button';
 import SiteLogo from './site-logo';
 
@@ -8,9 +9,9 @@ export default function Header() {
         className="container flex justify-between
   items-center py-4"
       >
-        <a className="contents" href="/">
+        <Link className="contents" href="/">
           <SiteLogo />
-        </a>
+        </Link>
         <ContactButton />
       </div>
       <hr className="border-none h-px opacity-15 bg-gradient-to-r from-transparent via-white to-transparent" />

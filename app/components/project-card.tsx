@@ -15,6 +15,7 @@ import dispImg from '@/app/assets/img/displacement4.png';
 import { Icon } from '@iconify/react';
 import HoverEffectImage from './hover-effect-image';
 import { Tables } from '../types/db';
+import Link from 'next/link';
 
 interface Props
   extends ComponentProps<FC>,
@@ -64,7 +65,10 @@ const ProjectCard: FC<Props> = ({ className, project, ...props }) => {
           z-10
 					`)}
       >
-        <a href={`/project/${slug}`} className="absolute inset-0" />
+        <Link
+          href={`/project/${slug}`}
+          className="absolute inset-0"
+        />
         <HoverEffectImage
           ref={hoverImageRef}
           image1={thumbnail_greeting}

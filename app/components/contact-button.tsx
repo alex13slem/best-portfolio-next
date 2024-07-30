@@ -9,6 +9,8 @@ interface ContactButtonProps
   text?: string;
 }
 
+export const revalidate = 3600;
+
 const ContactButton: NextPage<ContactButtonProps> = async ({
   text,
   ...props

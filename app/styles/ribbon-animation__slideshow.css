@@ -1,5 +1,6 @@
 .ribbon-animation__slideshow {
-  animation: ribbon-animation__slideshow 40s linear infinite alternate;
+  animation: ribbon-animation__slideshow linear infinite alternate;
+  animation-duration: 40s !important;
 }
 
 @keyframes ribbon-animation__slideshow {

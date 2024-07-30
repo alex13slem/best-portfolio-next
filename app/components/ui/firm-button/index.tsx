@@ -2,6 +2,7 @@ import type { ButtonHTMLAttributes, ComponentProps, FC } from 'react';
 import type { VariantStyles } from './types';
 import { variantsCss } from './styles';
 import { cn } from '@/app/lib/heplers';
+import Link from 'next/link';
 
 interface Props
   extends ButtonHTMLAttributes<HTMLButtonElement>,
@@ -20,6 +21,7 @@ const Button: FC<Props> = ({
   variant = 'bordered',
   ...props
 }) => {
+  const BtnLink = external ? 'a' : Link;
   return (
     <button
       className={cn(
@@ -33,7 +35,7 @@ const Button: FC<Props> = ({
       {...props}
     >
       {href && (
-        <a
+        <BtnLink
           href={href}
           target={external ? '_blank' : ''}
           className="absolute inset-0 z-20"
