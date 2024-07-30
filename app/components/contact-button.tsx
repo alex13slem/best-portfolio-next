@@ -1,10 +1,7 @@
-'use client';
-
 import { NextPage } from 'next';
 import { VariantStyles } from './ui/firm-button/types';
 import Button from './ui/firm-button';
 import { getSocials } from '../lib/supabase/queries/client/socials';
-import { use } from 'react';
 
 interface ContactButtonProps
   extends React.ComponentPropsWithoutRef<'button'> {
@@ -12,11 +9,11 @@ interface ContactButtonProps
   text?: string;
 }
 
-const ContactButton: NextPage<ContactButtonProps> = ({
+const ContactButton: NextPage<ContactButtonProps> = async ({
   text,
   ...props
 }) => {
-  const socials = use(getSocials()).data;
+  const socials = (await getSocials()).data;
   const href = socials?.find(
     (social) => social.slug === ('telegram' || 'vk' || 'hh')
   )?.url;

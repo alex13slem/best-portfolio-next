@@ -9,11 +9,6 @@ export const getProjectsWithTechnologies = cache(async () => {
   `);
 });
 
-export const getProjectsSlugs = cache(async () => {
-  const supabase = createClient();
-  return (await supabase.from('projects').select('slug')).data;
-});
-
 export const getProjectBySlug = cache(async (slug: string) => {
   const supabase = createClient();
   return await supabase
