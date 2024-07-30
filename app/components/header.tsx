@@ -1,4 +1,5 @@
-import Link from 'next/link';
+// import Link from 'next/link';
+import { Link } from 'next-view-transitions'
 import ContactButton from './contact-button';
 import SiteLogo from './site-logo';
 

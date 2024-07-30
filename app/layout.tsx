@@ -5,6 +5,7 @@ import Header from './components/header';
 import { cn } from './lib/heplers';
 import Footer from './components/footer';
 import { getMainSeo } from './lib/supabase/queries/server/main-info';
+import { ViewTransitions } from 'next-view-transitions';
 
 export async function generateMetadata(): Promise<Metadata> {
   const { error, data } = await getMainSeo();
@@ -36,22 +37,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth dark">
-      <body
-        className={cn(
-          `relative
+    <ViewTransitions>
+      <html lang="en" className="scroll-smooth dark">
+        <body
+          className={cn(
+            `relative
         bg-bg
         z-0
         min-h-svh
         tracking-wide
         text-white`,
-          sans.className
-        )}
-      >
-        <Header />
-        {children}
-        <Footer />
-      </body>
-    </html>
+            sans.className
+          )}
+        >
+          <Header />
+          {children}
+          <Footer />
+        </body>
+      </html>
+    </ViewTransitions>
   );
 }

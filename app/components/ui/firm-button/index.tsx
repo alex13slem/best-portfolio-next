@@ -2,7 +2,8 @@ import type { ButtonHTMLAttributes, ComponentProps, FC } from 'react';
 import type { VariantStyles } from './types';
 import { variantsCss } from './styles';
 import { cn } from '@/app/lib/heplers';
-import Link from 'next/link';
+// import Link from 'next/link';
+import { Link } from 'next-view-transitions';
 
 interface Props
   extends ButtonHTMLAttributes<HTMLButtonElement>,

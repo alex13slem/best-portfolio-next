@@ -15,7 +15,8 @@ import dispImg from '@/app/assets/img/displacement4.png';
 import { Icon } from '@iconify/react';
 import HoverEffectImage from './hover-effect-image';
 import { Tables } from '../types/db';
-import Link from 'next/link';
+// import Link from 'next/link';
+import { Link } from 'next-view-transitions'
 
 interface Props
   extends ComponentProps<FC>,

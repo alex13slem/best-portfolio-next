@@ -2,7 +2,8 @@ import { NextPage } from 'next';
 import { getContacts } from '../lib/supabase/queries/server/main-info';
 import SiteLogo from './site-logo';
 import ContactButton from './contact-button';
-import Link from 'next/link';
+// import Link from 'next/link';
+import { Link } from 'next-view-transitions';
 
 interface FooterProps
   extends React.ComponentPropsWithoutRef<'footer'> {}
