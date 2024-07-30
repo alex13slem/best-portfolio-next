@@ -1,0 +1,10 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import url(./scrollbar.css);
+@import url(./header_animation--title.css);
+@import url(./animate-gradient__rotate.css);
+@import url(./animated-colors__gradient.css);
+@import url(./logo-animation.css);
+@import url(./gradients.css);
+@import url(./ribbon-animation__slideshow.css);
