@@ -25,5 +25,3 @@ export function createClient() {
     }
   );
 }
-
-export default createClient();
