@@ -3,7 +3,7 @@ import colors from 'tailwindcss/colors';
 import defaultTheme from 'tailwindcss/defaultTheme';
 
 const config: Config = {
-  darkMode: ['class'],
+  darkMode: ['selector'],
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -12,8 +12,14 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['"Source Sans 3"', ...defaultTheme.fontFamily.sans],
-        logo: ['Shadows Into'],
+        sans: [
+          'var(--font-sourse-sans-3)',
+          ...defaultTheme.fontFamily.sans,
+        ],
+        logo: [
+          'var(--font-shadows-into-light)',
+          ...defaultTheme.fontFamily.sans,
+        ],
       },
       backgroundImage: {
         noise: "url('/img/background_noisy.webp')",

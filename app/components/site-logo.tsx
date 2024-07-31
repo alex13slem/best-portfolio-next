@@ -1,6 +1,5 @@
 import { NextPage } from 'next';
 import { cn } from '../lib/heplers';
-import '@/app/assets/fonts/shadows-into-light-font.css';
 
 interface SiteLogoProps
   extends React.ComponentPropsWithoutRef<'span'> {

@@ -1,11 +1,14 @@
 import type { Metadata } from 'next';
-import { Source_Sans_3 } from 'next/font/google';
-import './styles/app.css';
-import Header from './components/header';
-import { cn } from './lib/heplers';
-import Footer from './components/footer';
-import { getMainSeo } from './lib/supabase/queries/server/main-info';
+import '@/app/styles/app.css';
+import Header from '@/app/components/header';
+import { cn } from '@/app/lib/heplers';
+import Footer from '@/app/components/footer';
+import { getMainSeo } from '@/app/lib/supabase/queries/server/main-info';
 import { ViewTransitions } from 'next-view-transitions';
+import {
+  shadows_into_light,
+  sourse_sans_3,
+} from '@/app/assets/fonts';
 
 export async function generateMetadata(): Promise<Metadata> {
   const { error, data } = await getMainSeo();
@@ -26,11 +29,6 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-const sans = Source_Sans_3({
-  subsets: ['latin', 'cyrillic'],
-  weight: 'variable',
-});
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -38,7 +36,14 @@ export default function RootLayout({
 }>) {
   return (
     <ViewTransitions>
-      <html lang="en" className="scroll-smooth dark">
+      <html
+        lang="en"
+        className={cn(
+          `scroll-smooth dark`,
+          sourse_sans_3.variable,
+          shadows_into_light.variable
+        )}
+      >
         <body
           className={cn(
             `relative
@@ -46,8 +51,7 @@ export default function RootLayout({
         z-0
         min-h-svh
         tracking-wide
-        text-white`,
-            sans.className
+        text-white`
           )}
         >
           <Header />
