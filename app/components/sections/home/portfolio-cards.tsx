@@ -2,18 +2,19 @@ import { NextPage } from 'next';
 import Image from 'next/image';
 import heyImage from '@/app/assets/img/stickers/hey.png';
 import ProjectCard from '@/app/components/project-card';
-import { Tables } from '@/app/types/db';
+import { getProjectsWithTechnologies } from '@/app/lib/supabase/queries/server/projects';
 
 interface SectPortfolioCardsProps
-  extends React.ComponentPropsWithoutRef<'section'> {
-  projects: (Tables<'projects'> & {
-    technologies: Tables<'technologies'>[];
-  })[];
-}
+  extends React.ComponentPropsWithoutRef<'section'> {}
 
-const SectPortfolioCards: NextPage<SectPortfolioCardsProps> = ({
-  projects,
-}) => {
+const SectPortfolioCards: NextPage<
+  SectPortfolioCardsProps
+> = async () => {
+  const projects = await getProjectsWithTechnologies();
+  if (projects.error) {
+    console.error(projects.error);
+    return null;
+  }
   return (
     <section className="relative">
       <div className="-z-10 min-h-[calc(100vh-50vh)] min-w-[calc(100vw-50vw)] max-w-[780px] max-h-[780px] w-full h-full md:min-h-[780px] md:min-w-[780px] rounded-full absolute top-0 gradient-experience__1 blur-[150px] -translate-y-1/4 -translate-x-1/2 left-1/2"></div>
@@ -33,7 +34,7 @@ const SectPortfolioCards: NextPage<SectPortfolioCardsProps> = ({
             height={184}
           />
         </div>
-        {projects.map((project) => (
+        {projects.data.map((project) => (
           <ProjectCard key={project.id} project={project} />
         ))}
       </div>

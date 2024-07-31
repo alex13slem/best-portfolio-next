@@ -4,18 +4,19 @@ import { parse } from 'marked';
 import Image from 'next/image';
 import ContactButton from '@/app/components/contact-button';
 import HeroEpithets from '@/app/components/hero-epithets';
-import { Tables } from '@/app/types/db';
+import { getHerosInfo } from '../../../lib/supabase/queries/server/main-info';
+import { notFound } from 'next/navigation';
 
 interface SectHeroProps
-  extends React.ComponentPropsWithoutRef<'section'> {
-  herosInfo: Pick<
-    Tables<'main_info'>,
-    'hero_epithets' | 'hero_greeting'
-  >;
-}
+  extends React.ComponentPropsWithoutRef<'section'> {}
 
-const SectHero: NextPage<SectHeroProps> = async ({ herosInfo }) => {
-  const { hero_epithets, hero_greeting } = herosInfo;
+const SectHero: NextPage<SectHeroProps> = async () => {
+  const herosInfo = await getHerosInfo();
+  if (herosInfo.error) {
+    console.error(herosInfo.error);
+    notFound();
+  }
+  const { hero_epithets, hero_greeting } = herosInfo.data;
 
   return (
     <section className="pb-28 pt-16 md:py-28">

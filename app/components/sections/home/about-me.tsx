@@ -2,18 +2,18 @@ import { NextPage } from 'next';
 import Image from 'next/image';
 import classImg from '@/app/assets/img/stickers/class.png';
 import thinkAboutThisImg from '@/app/assets/img/stickers/ThkAbtIt.png';
-import { Tables } from '@/app/types/db';
 import AppearsText from '@/app/components/appears-text';
+import { getHerosInfo } from '@/app/lib/supabase/queries/server/main-info';
 
 interface SectAboutMeProps
-  extends React.ComponentPropsWithoutRef<'section'> {
-  herosInfo: Pick<Tables<'main_info'>, 'about_hero'>;
-}
+  extends React.ComponentPropsWithoutRef<'section'> {}
 
-const SectAboutMe: NextPage<SectAboutMeProps> = async ({
-  herosInfo,
-}) => {
-  const { about_hero } = herosInfo;
+const SectAboutMe: NextPage<SectAboutMeProps> = async ({}) => {
+  const herosInfo = await getHerosInfo();
+  if (herosInfo.error) {
+    console.error(herosInfo.error);
+    return null;
+  }
   return (
     <section id="about-me" className="pt-36 pb-28 md:py-36">
       <div className="container relative">
@@ -34,7 +34,7 @@ const SectAboutMe: NextPage<SectAboutMeProps> = async ({
         <h2 className="text-center bg-clip-text text-transparent text-sm font-extrabold white_gradient uppercase mb-4">
           Обо мне
         </h2>
-        <AppearsText text={about_hero} />
+        <AppearsText text={herosInfo.data.about_hero} />
       </div>
     </section>
   );

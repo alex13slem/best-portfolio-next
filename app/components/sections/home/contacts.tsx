@@ -1,17 +1,21 @@
 import { NextPage } from 'next';
-import { Database, Tables } from '@/app/types/db';
+import { Database } from '@/app/types/db';
 import { cn } from '@/app/lib/heplers';
 import Button from '@/app/components/ui/firm-button';
 import Image from 'next/image';
 import linesPNG from '@/app/assets/img/Lines.png';
 import { Icon } from '@iconify/react/dist/iconify.js';
+import { getSocials } from '@/app/lib/supabase/queries/server/socials';
 
 interface SectContactsProps
-  extends React.ComponentPropsWithoutRef<'section'> {
-  socials: Tables<'socials'>[];
-}
+  extends React.ComponentPropsWithoutRef<'section'> {}
 
-const SectContacts: NextPage<SectContactsProps> = ({ socials }) => {
+const SectContacts: NextPage<SectContactsProps> = async () => {
+  const socials = await getSocials();
+  if (socials.error) {
+    console.error(socials.error);
+    return null;
+  }
   const getButtonText = (
     slug: Database['public']['Enums']['socials_enum']
   ) => {
@@ -63,7 +67,7 @@ const SectContacts: NextPage<SectContactsProps> = ({ socials }) => {
           Готовы начать интересный проект?
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-14 md:mt-20">
-          {socials.map((social) => (
+          {socials.data.map((social) => (
             <article
               key={social.id}
               className="text-center flex flex-col items-center gap-3"

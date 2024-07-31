@@ -1,14 +1,17 @@
 import { NextPage } from 'next';
 import { cn } from '@/app/lib/heplers';
-import { Tables } from '@/app/types/db';
+import { getTechnologies } from '@/app/lib/supabase/queries/server/technologies';
 
 interface SectRibbonProps
-  extends React.ComponentPropsWithoutRef<'section'> {
-  technologies: Tables<'technologies'>[];
-}
+  extends React.ComponentPropsWithoutRef<'section'> {}
 
-const SectRibbon: NextPage<SectRibbonProps> = ({ technologies }) => {
-  const keywords = technologies.map((tech) => tech.name);
+const SectRibbon: NextPage<SectRibbonProps> = async () => {
+  const technologies = await getTechnologies();
+  if (technologies.error) {
+    console.error(technologies.error);
+    return null;
+  }
+  const keywords = technologies.data.map((tech) => tech.name);
   const keywordsString = (keywords.join(' · ') + ' · ').repeat(2);
 
   return (
