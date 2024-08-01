@@ -4,6 +4,7 @@ import classImg from '@/app/assets/img/stickers/class.png';
 import thinkAboutThisImg from '@/app/assets/img/stickers/ThkAbtIt.png';
 import AppearsText from '@/app/components/appears-text';
 import { getHerosInfo } from '@/app/lib/supabase/queries/server/main-info';
+import { Suspense } from 'react';
 
 interface SectAboutMeProps
   extends React.ComponentPropsWithoutRef<'section'> {}
@@ -34,7 +35,9 @@ const SectAboutMe: NextPage<SectAboutMeProps> = async ({}) => {
         <h2 className="text-center bg-clip-text text-transparent text-sm font-extrabold white_gradient uppercase mb-4">
           Обо мне
         </h2>
-        <AppearsText text={herosInfo.data.about_hero} />
+        <Suspense>
+          <AppearsText text={herosInfo.data.about_hero} />
+        </Suspense>
       </div>
     </section>
   );

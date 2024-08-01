@@ -1,8 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+	experimental: {
+		ppr: 'incremental',
+	},
 	images: {
 		domains: ['aytaobyattkijkfvyztb.supabase.co'],
-	}
+	},
 };
 
-export default nextConfig;
+module.exports = nextConfig;

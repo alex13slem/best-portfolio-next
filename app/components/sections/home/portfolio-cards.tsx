@@ -3,6 +3,7 @@ import Image from 'next/image';
 import heyImage from '@/app/assets/img/stickers/hey.png';
 import ProjectCard from '@/app/components/project-card';
 import { getProjectsWithTechnologies } from '@/app/lib/supabase/queries/server/projects';
+import { Suspense } from 'react';
 
 interface SectPortfolioCardsProps
   extends React.ComponentPropsWithoutRef<'section'> {}
@@ -34,9 +35,11 @@ const SectPortfolioCards: NextPage<
             height={184}
           />
         </div>
-        {projects.data.map((project) => (
-          <ProjectCard key={project.id} project={project} />
-        ))}
+        <Suspense>
+          {projects.data.map((project) => (
+            <ProjectCard key={project.id} project={project} />
+          ))}
+        </Suspense>
       </div>
     </section>
   );

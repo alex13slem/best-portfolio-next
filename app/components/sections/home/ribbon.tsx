@@ -1,6 +1,7 @@
 import { NextPage } from 'next';
 import { cn } from '@/app/lib/heplers';
 import { getTechnologies } from '@/app/lib/supabase/queries/server/technologies';
+import { Suspense } from 'react';
 
 interface SectRibbonProps
   extends React.ComponentPropsWithoutRef<'section'> {}
@@ -26,7 +27,7 @@ const SectRibbon: NextPage<SectRibbonProps> = async () => {
 		`)}
       >
         <span className="ribbon-animation__slideshow group-hover:-scale-y-100 transition-all duration-200 tracking-widest inline-block">
-          {keywordsString}
+          <Suspense fallback={null}>{keywordsString}</Suspense>
         </span>
       </p>
     </section>

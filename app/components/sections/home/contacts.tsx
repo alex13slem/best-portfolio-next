@@ -6,6 +6,7 @@ import Image from 'next/image';
 import linesPNG from '@/app/assets/img/Lines.png';
 import { Icon } from '@iconify/react/dist/iconify.js';
 import { getSocials } from '@/app/lib/supabase/queries/server/socials';
+import { Suspense } from 'react';
 
 interface SectContactsProps
   extends React.ComponentPropsWithoutRef<'section'> {}
@@ -66,24 +67,26 @@ const SectContacts: NextPage<SectContactsProps> = async () => {
         >
           Готовы начать интересный проект?
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-14 md:mt-20">
-          {socials.data.map((social) => (
-            <article
-              key={social.id}
-              className="text-center flex flex-col items-center gap-3"
-            >
-              <Icon
-                icon={social.iconify_id}
-                className="text-7xl text-white text-opacity-90"
-              />
-              <Button variant="fill" href={social.url} external>
-                {getButtonText(
-                  social.slug as Database['public']['Enums']['socials_enum']
-                )}
-              </Button>
-            </article>
-          ))}
-        </div>
+        <Suspense>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-14 md:mt-20">
+            {socials.data.map((social) => (
+              <article
+                key={social.id}
+                className="text-center flex flex-col items-center gap-3"
+              >
+                <Icon
+                  icon={social.iconify_id}
+                  className="text-7xl text-white text-opacity-90"
+                />
+                <Button variant="fill" href={social.url} external>
+                  {getButtonText(
+                    social.slug as Database['public']['Enums']['socials_enum']
+                  )}
+                </Button>
+              </article>
+            ))}
+          </div>
+        </Suspense>
       </div>
     </section>
   );
