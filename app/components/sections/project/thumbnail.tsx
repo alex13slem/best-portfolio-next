@@ -34,10 +34,12 @@ const SectThumbnail: NextPage<SectThumbnailProps> = ({ project }) => {
       >
         <Image
           src={thumbnail_greeting}
+          placeholder="blur"
+          blurDataURL={thumbnail_greeting}
           alt={name}
           width={800}
           height={450}
-          className="bg-[#0D1420]
+          className="bg-white bg-opacity-10 
               w-full h-full object-cover"
         />
       </a>
