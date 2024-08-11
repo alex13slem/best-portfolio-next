@@ -42,7 +42,7 @@ const AppearsText: NextPage<AppearsTextProps> = ({ text }) => {
     <p className="font-semibold text-3xl md:text-5xl lg:text-7xl text-center w-full mx-auto max-w-5xl leading-tight lg:leading-tight flex flex-wrap gap-3 justify-center">
       {textWords.map((word, index) => (
         <span
-          key={word}
+          key={word + index}
           ref={(el) => {
             el && (wordsRef.current[index] = el);
           }}

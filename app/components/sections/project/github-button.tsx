@@ -1,6 +1,7 @@
 import { Icon } from '@iconify/react';
 import { NextPage } from 'next';
 import { cn } from '@/app/lib/heplers';
+import { Suspense } from 'react';
 
 interface GithubButtonProps
   extends React.ComponentPropsWithoutRef<'button'> {
@@ -25,5 +26,22 @@ const GithubButton: NextPage<GithubButtonProps> = ({ link }) => {
     </button>
   );
 };
+
+export function GithubButtonSkeleton() {
+  return (
+    <button
+      className={cn(` 
+          row-start-2 col-span-4
+          sm:row-start-auto
+          xl:col-span-1
+          rounded-xl
+          bg-white bg-opacity-10 backdrop-blur-sm
+          border border-white border-opacity-10
+          animate-pulse 
+          h-[52px]
+          `)}
+    ></button>
+  );
+}
 
 export default GithubButton;

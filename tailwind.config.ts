@@ -34,7 +34,7 @@ const config: Config = {
           to: { height: '0' },
         },
         shimmer: {
-          to: { transform: 'translateX(100%)' },
+          to: { translate: '200% 200%' },
         },
       },
       animation: {

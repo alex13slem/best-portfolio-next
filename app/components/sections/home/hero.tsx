@@ -23,7 +23,6 @@ const SectHero: NextPage<SectHeroProps> = async () => {
     <section className="pb-28 pt-16 md:py-28">
       <div className="container relative z-1 max-w-4xl grid grid-cols-1 gap-8">
         <Image
-          placeholder="blur"
           src={linesPNG}
           alt="Lines"
           className="-translate-y-[1px] w-full absolute top-0 pointer-events-none -z-10"

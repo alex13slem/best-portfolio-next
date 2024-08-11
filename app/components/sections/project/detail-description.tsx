@@ -29,4 +29,20 @@ const SectDetailDescription: NextPage<SectDetailDescriptionProps> = ({
   );
 };
 
+export function SectDetailDescriptionSkeleton() {
+  return (
+    <section
+      className={cn(`
+          col-span-full 
+          lg:col-span-8 lg:row-start-3 
+          rounded-xl
+          bg-white bg-opacity-10 backdrop-blur-sm
+          border border-white border-opacity-10
+          animate-pulse
+          min-h-svh
+      `)}
+    ></section>
+  );
+}
+
 export default SectDetailDescription;

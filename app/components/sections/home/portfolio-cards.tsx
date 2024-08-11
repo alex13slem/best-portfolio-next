@@ -29,7 +29,6 @@ const SectPortfolioCards: NextPage<
       >
         <div className="-z-10 absolute top-6 left-0 select-none pointer-events-none -translate-y-full">
           <Image
-            placeholder="blur"
             src={heyImage}
             alt={'Саша машет Вам рукой!'}
             className={'object-contain ml-3 md:ml-20 mx-auto w-auto'}

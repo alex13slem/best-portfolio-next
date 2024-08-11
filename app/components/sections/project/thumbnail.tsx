@@ -33,9 +33,7 @@ const SectThumbnail: NextPage<SectThumbnailProps> = ({ project }) => {
           `)}
       >
         <Image
-          placeholder="blur"
           src={thumbnail_greeting}
-          blurDataURL={thumbnail_greeting}
           alt={name}
           width={800}
           height={450}
@@ -47,5 +45,23 @@ const SectThumbnail: NextPage<SectThumbnailProps> = ({ project }) => {
     </section>
   );
 };
+
+export function SectThumbnailSkeleton() {
+  return (
+    <section
+      className={cn(
+        `animate-pulse
+      bg-white bg-opacity-10
+      col-span-full 
+      lg:col-span-8 lg:row-span-2 
+      rounded-xl 
+      backdrop-blur-sm
+      border border-white border-opacity-10
+      aspect-video lg:aspect-auto
+    `
+      )}
+    ></section>
+  );
+}
 
 export default SectThumbnail;

@@ -39,4 +39,21 @@ const SectShortDescription: NextPage<SectShortDescriptionProps> = ({
   );
 };
 
+export function SectShortDescriptionSkeleton() {
+  return (
+    <section
+      className={cn(`
+          col-span-full row-span-1 row-start-4 
+          sm:col-span-8 sm:row-start-2 sm:row-span-4 
+          lg:row-span-1 lg:row-start-auto lg:col-span-4 
+          rounded-xl
+          bg-white bg-opacity-10 backdrop-blur-sm
+          border border-white border-opacity-10
+          animate-pulse
+          min-h-96
+      `)}
+    ></section>
+  );
+}
+
 export default SectShortDescription;
