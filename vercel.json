@@ -1,8 +1,0 @@
-{
-  "redirects": [
-    {
-      "source": "/:path*",
-      "destination": "https://alex13slem.netlify.app/:path*"
-    }
-  ]
-}
