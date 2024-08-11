@@ -20,12 +20,14 @@ const SectAboutMe: NextPage<SectAboutMeProps> = async ({}) => {
       <div className="container relative">
         <div className="absolute inset-0 -z-10">
           <Image
+            placeholder="blur"
             src={thinkAboutThisImg}
             alt="Think About This"
             width={210}
             className={`absolute left-0 lg:left-10 top-0 -translate-y-full md:-translate-y-3/4 lg:translate-y-0 w-[9rem] md:w-[11rem] lg:w-auto pointer-events-none`}
           />
           <Image
+            placeholder="blur"
             src={classImg}
             alt="Class"
             width={210}

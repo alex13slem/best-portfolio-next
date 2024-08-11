@@ -41,6 +41,7 @@ const SectContacts: NextPage<SectContactsProps> = async () => {
       >
         <div className="absolute inset-0 -z-10">
           <Image
+            placeholder="blur"
             src={linesPNG}
             alt="Lines"
             className="-translate-y-[1px] w-full h-[70vh] lg:h-auto absolute bottom-0 pointer-events-none -z-10"

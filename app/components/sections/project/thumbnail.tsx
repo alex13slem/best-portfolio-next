@@ -33,6 +33,7 @@ const SectThumbnail: NextPage<SectThumbnailProps> = ({ project }) => {
           `)}
       >
         <Image
+          placeholder="blur"
           src={thumbnail_greeting}
           alt={name}
           width={800}

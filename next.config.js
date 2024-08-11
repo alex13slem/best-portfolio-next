@@ -4,7 +4,13 @@ const nextConfig = {
 		ppr: 'incremental',
 	},
 	images: {
-		domains: ['aytaobyattkijkfvyztb.supabase.co'],
+		remotePatterns: [
+			{
+				hostname: 'aytaobyattkijkfvyztb.supabase.co',
+			}
+		],
+		formats: ['image/avif', 'image/webp'],
+		
 	},
 };
 
