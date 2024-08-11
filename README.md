@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Мой Портфолио Сайт
 
-## Getting Started
+Добро пожаловать на мой портфолио сайт, который демонстрирует мои навыки и знания в области современных технологий веб-разработки. Этот проект служит витриной для потенциальных работодателей, показывая, что я способен создавать интерактивные и безопасные веб-приложения.
 
-First, run the development server:
+## 🌟 Цели и Задачи
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Основная цель сайта — продемонстрировать мои компетенции в разработке веб-приложений с использованием новейших технологий и подходов.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Функциональность и Особенности
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 📄 Генерация Контента и Архитектура
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- **Next.js с ISR (Incremental Static Regeneration)** для быстрой загрузки и SEO-оптимизации.
+- **Astro** для административной панели, что позволяет использовать островную архитектуру и минимизировать использование JavaScript на клиентской стороне.
 
-## Learn More
+### 🛠️ Административная Панель
 
-To learn more about Next.js, take a look at the following resources:
+- **Astro с SSR (Server-Side Rendering)** для безопасного управления контентом.
+- **Supabase Auth** для надежной авторизации и защиты административных функций.
+- **React-Hook-Form** и **Zod** для валидации форм как на клиентской, так и на серверной стороне.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 📦 База Данных и API
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- **PostgreSQL** с **Drizzle ORM** для удобной работы с данными и их типизацией.
+- **API** в режиме SSR, доступный только для зарегистрированных пользователей.
 
-## Deploy on Vercel
+### ☁️ Хостинг и Инфраструктура
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Netlify** для хостинга сайта и автоматического развертывания.
+- **Supabase** для хранения данных и использования CDN для быстрого доступа к контенту.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## 🔮 Будущее Развитие
+
+В ближайших планах:
+
+- Добавление публичной регистрации и уровней доступа.
+- Расширение функциональности административной панели.
+
+Этот проект является моим живым портфолио, отражающим мой профессиональный рост и стремление к постоянному обучению.
+
+---
+
+Если вам интересно узнать больше или сотрудничать со мной, не стесняйтесь [связаться со мной](https://t.me/alex13slem).
+
+**Спасибо за внимание!**
+
+---
+
+![Next.js](https://img.shields.io/badge/Next.js-000000?logo=nextdotjs&logoColor=fff&style=flat)
+![Astro JS](https://img.shields.io/badge/Astro%20JS-ff5a03?logo=astro&logoColor=fff&style=flat)
+![React](https://img.shields.io/badge/React-61dafb?logo=react&logoColor=fff&style=flat)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-38b2ac?logo=tailwind-css&logoColor=fff&style=flat)
+![Netlify](https://img.shields.io/badge/Netlify-00c7b7?logo=netlify&logoColor=fff&style=flat)
+![Supabase](https://img.shields.io/badge/Supabase-3ecf8e?logo=supabase&logoColor=fff&style=flat)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?logo=postgresql&logoColor=fff&style=flat)
+
+---
+
+🔗 **Репозиторий проекта**: [GitHub](https://github.com/alex13slem/best-porfolio)
+
+📧 **Контакты**: [Email](mailto:a.s.scherba@yandex.by)
+
+---
+
+*Этот проект развернут на бесплатных тарифах Vercel, Netlify и Supabase.*
